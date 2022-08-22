@@ -9,6 +9,10 @@
 1. ...
 
 # Dockerhub 
+## login (if not already)
+docker login
+## enter folder
+cd r3
 ## build
 docker build -t r_4_2_1 .
 ## tag
