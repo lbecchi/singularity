@@ -1,9 +1,12 @@
 #  Dockerfiles for bio-informatics
 
 ## R
-1. r1 : r_3_6_3 from Carl Boettiger
-2. r2 : r_3_6_3 from Carl Boettiger
-3. r3 : r_4_2_1 first customized
+1. r1 : R version 3.6.3 from Carl Boettiger
+2. r2 : R version 3.6.3 from Carl Boettiger
+3. r3 : R version 4.2.1 first customized (still not compiling)
+
+## Python
+1. ...
 
 # Dockerhub 
 ## build
