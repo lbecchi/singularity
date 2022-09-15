@@ -4,6 +4,7 @@
 1. r1 : R version 3.6.3 from Carl Boettiger
 2. r2 : R version 3.6.3 from Carl Boettiger
 3. r3 : R version 4.2.1 first customized (still not compiling)
+4. [r4](./r4) : R version 4.2.1 from rocker/r-ver. Brings ComplexHeatmap. Ready for testing
 
 ## Python
 1. ...
