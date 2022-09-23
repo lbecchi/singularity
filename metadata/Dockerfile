@@ -17,6 +17,37 @@ RUN R -e 'BiocManager::install(c("limma", \
     "minfi", "IlluminaHumanMethylation450kanno.ilmn12.hg19", "IlluminaHumanMethylationEPICanno.ilm10b4.hg19",  \ 
     "IlluminaHumanMethylation450kmanifest","IlluminaHumanMethylationEPICmanifest","data.table", ask = F))'
 
+# NODEJS
+# # add node and npm to path so the commands are available
+# ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
+# ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - \
+    && apt-get install -y nodejs
+
+# confirm installation
+RUN node -v
+RUN npm -v
+RUN which node
+RUN which npm
+
+# NPM global packages
+ENV PATH=$PATH:/home/node/.npm-global/bin
+# install CSV2XSLX converter
+RUN npm -g config set user root
+RUN npm install --global @aternus/csv-to-xlsx  
+# RUN npx @aternus/csv-to-xlsx 
+# Application programs 
+# RUN apt-get install  ripgrep parallel -y
+
+
+
+
+
 # sudo docker build -t metadata .
 # sudo docker tag metadata lbecchi/metadata:latest
 # sudo docker push lbecchi/metadata:latest
+
+# singularity shell docker://lbecchi/metadata:latest
+
+
+

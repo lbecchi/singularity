@@ -1,14 +1,34 @@
 #  Dockerfiles for bio-informatics
 
 ## R
-1. r1 : R version 3.6.3 from Carl Boettiger
-2. r2 : R version 3.6.3 from Carl Boettiger
-3. r3 : R version 4.2.1 first customized (still not compiling)
+
 4. [r4](./r4) : R version 4.2.1 from rocker/r-ver. Brings ComplexHeatmap. Ready for testing
+4. [regioneR](./regioneR) : R version 4.2.1 from rocker/r-ver. Brings regioneR. Ready for testing
 
-## Python
-1. ...
 
+## Metadata project
+Dockerfile: [Metadata](./metadata)  
+Packages:
+* Nodejs
+    * aternus/csv-to-xlsx 
+* R
+    * BiocManager 
+    * minfi
+    * limma
+    * IlluminaHumanMethylation450kanno.ilmn12.hg19
+    * IlluminaHumanMethylationEPICanno.ilm10b4.hg19
+    * IlluminaHumanMethylation450kmanifest
+    * IlluminaHumanMethylationEPICmanifest
+    * data.table
+    * magick
+    * tidyverse
+    * vroom
+    * VennDiagram
+    * PerformanceAnalytics
+    * Cairo
+    * ComplexHeatmap
+    * GO.db
+    * corrplot
 # Dockerhub 
 ## login (if not already)
 docker login
