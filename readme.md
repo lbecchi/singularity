@@ -29,14 +29,3 @@ Packages:
     * ComplexHeatmap
     * GO.db
     * corrplot
-# Dockerhub 
-## login (if not already)
-docker login
-## enter folder
-cd r3
-## build
-docker build -t r_4_2_1 .
-## tag
-docker tag docker tag r_4_2_1:latest lbecchi/r_4_2_1:latest
-## publish
-docker push lbecchi/r_4_2_1:latest
