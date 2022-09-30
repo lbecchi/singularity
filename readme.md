@@ -21,10 +21,14 @@ singularity run  docker://lbecchi/metadata:latest node -v
 ```
 singularity run  docker://lbecchi/metadata:latest Rscript  /path/r_script_name.slurm
 ```
+#### R interactive session
+```
+singularity run  docker://lbecchi/metadata:latest 
+```
 ### Slurm job
 Job name "Rsession", 1 cores (-c1), time 1 hour (-t 1:00:00), 1 GB memory (--mem 1G)
 ```
-srun --mem 1G  -J RJob -c1 -t 1:00:00  singularity run  docker://lbecchi/regioneR:latest Rscript /path/r_script_name.slurm
+srun --mem 1G  -J RJob -c1 -t 1:00:00  singularity run  docker://lbecchi/regioneR:latest Rscript /path/r_script_name.slurm parameter1 parameter2
 ```
 
 ### Slurm interactive sessions
