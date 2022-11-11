@@ -17,6 +17,28 @@ RUN R -e 'BiocManager::install(c("limma", \
     "minfi", "IlluminaHumanMethylation450kanno.ilmn12.hg19", "IlluminaHumanMethylationEPICanno.ilm10b4.hg19",  \ 
     "IlluminaHumanMethylation450kmanifest","IlluminaHumanMethylationEPICmanifest","data.table", ask = F))'
 
+
+#to debug Normalization for Metadata error
+#https://support.bioconductor.org/p/122925/  
+RUN R -e 'BiocManager::install("preprocessCore", configure.args="--disable-threading", ask = F)'
+
+RUN R -e 'BiocManager::install(c("gplots", ask = F))'
+
+
+
+
+RUN apt-get install  jq pigz -y
+
+RUN apt-get update
+
+RUN apt-get install ghostscript dbus  imagemagick --fix-missing -y
+
+# RUN RIPGREP_VERSION=$(curl -s "https://api.github.com/repos/BurntSushi/ripgrep/releases/latest" | grep -Po '"tag_name": "\K[0-9.]+')
+# RUN curl -Lo ripgrep.deb "https://github.com/BurntSushi/ripgrep/releases/latest/download/ripgrep_${RIPGREP_VERSION}_amd64.deb" && apt install -y ripgrep.deb
+ 
+# RUN rg --version
+# RUN rm -rf ripgrep.deb
+
 # NODEJS
 # # add node and npm to path so the commands are available
 # ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
@@ -34,18 +56,34 @@ RUN which npm
 ENV PATH=$PATH:/home/node/.npm-global/bin
 # install CSV2XSLX converter
 RUN npm -g config set user root
+# RUN npm install --global @aternus/csv-to-xlsx  
+
+ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
+
+# optionally if you want to run npm global bin without specifying path
+# ENV PATH=$PATH:/home/node/.npm-global/bin
+
 RUN npm install --global @aternus/csv-to-xlsx  
-# RUN npx @aternus/csv-to-xlsx 
-# Application programs 
-# RUN apt-get install  ripgrep parallel -y
+# RUN ls /home/node/.npm-global
+# RUN ls /home/node/.npm-global/bin
+# RUN ls /home/node/.npm-global/lib/node_modules
 
 
 
+
+
+# installing RG
+# install rust  
+RUN curl https://sh.rustup.rs -sSf > rustup.sh
+RUN chmod 755 rustup.sh
+RUN ./rustup.sh -y
+RUN rm ./rustup.sh
+RUN ~/.cargo/bin/cargo install ripgrep 
 
 
 # sudo docker build -t metadata .
 # sudo docker tag metadata lbecchi/metadata:latest
-# sudo docker push lbecchi/metadata:latest
+# docker push lbecchi/metadata:latest
 
 # singularity shell docker://lbecchi/metadata:latest
 
