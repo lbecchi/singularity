@@ -51,6 +51,12 @@ salloc --mem 10G -J PythonSession -c20 -w c02 -t 1:00:00  singularity exec  dock
 4. [r4](./r4) : R version 4.2.1 from rocker/r-ver. Brings ComplexHeatmap. Ready for testing
 4. [regioneR](./regioneR) : R version 4.2.1 from rocker/r-ver. Brings regioneR. Ready for testing
 
+### GDAL/Ubuntu with parallel
+Dockerfile: [Metadata](./restoration)  
+Packages:
+* jq
+* gdal/ogr
+* parallel
 
 ### Metadata project
 Dockerfile: [Metadata](./metadata)  

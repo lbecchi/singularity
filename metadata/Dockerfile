@@ -14,7 +14,7 @@ RUN R -e 'BiocManager::install(ask = F)' && R -e 'BiocManager::install(c("magick
 
 #for Methylation Betas generation
 RUN R -e 'BiocManager::install(c("limma", \
-    "minfi", "IlluminaHumanMethylation450kanno.ilmn12.hg19", "IlluminaHumanMethylationEPICanno.ilm10b4.hg19",  \ 
+    "minfi", "Seurat", "IlluminaHumanMethylation450kanno.ilmn12.hg19", "IlluminaHumanMethylationEPICanno.ilm10b4.hg19",  \ 
     "IlluminaHumanMethylation450kmanifest","IlluminaHumanMethylationEPICmanifest","data.table", ask = F))'
 
 
